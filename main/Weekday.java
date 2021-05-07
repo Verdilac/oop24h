@@ -23,15 +23,40 @@ public class Weekday extends Student implements ManageStudent {
 	
 	
 	
-	public String generateID() {
-		int min = 1000;
-	    int max = 100000;
-	        
-	      
-//	    System.out.println("Random value in int from "+min+" to "+max+ ":");
-	    Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);
-	      
-	      return ("IT"+randomID.toString());    
+	public String generateID() 
+	{
+	
+		String generatedID = null;
+		String ID;	
+		try {	
+			
+
+		
+		
+			int min = 1000;
+			int max = 100000;
+	          
+			Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
+			
+			ID = randomID.toString();
+			generatedID = ("IT"+ID);
+			
+			if(!generatedID.contains("IT") ||   4>ID.length()) 
+			{
+				
+				throw new IDInvalidException("as");
+			}
+			
+			}
+		catch (IDInvalidException e) 
+			{
+				generateID();
+			}
+		
+		
+	
+		return generatedID;
+		
 	};
 	
 	public  void showDetails() {

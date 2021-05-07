@@ -15,15 +15,41 @@ public class Weekend extends Student{
 		this.jobTitle = jobTitle;
 	}
 	
-	public String generateID() {
-		int min = 1000;
-	    int max = 100000;
-	        
-	      
-//	    System.out.println("Random value in int from "+min+" to "+max+ ":");
-	    Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);
-	      
-	      return ("IT"+randomID.toString());    
+	public String generateID() 
+	{
+	
+		String generatedID = null;
+		String ID;	
+		try {	
+			
+
+		
+			//declaring range for the ID number to be generated.
+			int min = 1000;
+			int max = 100000;
+	          
+			Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
+			
+			ID = randomID.toString();
+			generatedID = ("IT"+ID);
+			
+			if(!generatedID.contains("IT") ||   4>ID.length()) 
+			{
+				
+				throw new IDInvalidException("as");
+			}
+			
+			}
+		catch (IDInvalidException e) 
+			{
+				//catching the custom exception here and calling the generateID function again.
+				generateID();
+			}
+		
+		
+	
+		return generatedID;
+		
 	};
 	
 	public void showDetails() {
@@ -32,7 +58,7 @@ public class Weekend extends Student{
 		System.out.println("Gender :"+ super.sex);
 		System.out.println("Student Year :"+ super.bornYear);
 		System.out.println("Student Job Title :"+ super.specialization);
-		System.out.println("Student Job Title :"+ this.jobTitle);
+		System.out.println("Student Freeday :"+ this.jobTitle);
 		
 	}
 	
