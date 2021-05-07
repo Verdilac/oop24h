@@ -5,9 +5,9 @@ import java.util.HashMap;
 
 public class Specialization {
 	
-	Map<String,Double> degreeDetails;
+	protected Map<String,Double> degreeDetails;
 	
-	public Specialization() {
+	 Specialization() {
 		
 		 degreeDetails = new HashMap<>();
 		
