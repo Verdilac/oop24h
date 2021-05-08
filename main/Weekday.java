@@ -6,8 +6,6 @@ public class Weekday extends Student implements ManageStudent {
 	protected String freeDay;
 
 	
-	
-	
 	Weekday(){
 	
 	};
@@ -15,7 +13,7 @@ public class Weekday extends Student implements ManageStudent {
 
 	
 	public void addDetails(String name,String address,char sex,int bornYear,String specialization,String freeDay) {
-		super.addDetails(name, address, sex, bornYear, specialization);
+		super.addDetails(name, address, sex, bornYear, specialization); //using parent method
 		this.freeDay = freeDay;
 	}
 	
@@ -32,9 +30,9 @@ public class Weekday extends Student implements ManageStudent {
 			
 
 		
-		
+			//declaring range for the ID number to be generated.
 			int min = 1000;
-			int max = 100000;
+			int max = 10000;
 	          
 			Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
 			
@@ -44,13 +42,20 @@ public class Weekday extends Student implements ManageStudent {
 			if(!generatedID.contains("IT") ||   4>ID.length()) 
 			{
 				
-				throw new IDInvalidException("as");
+				throw new IDInvalidException("Invalid ID.Regenerating ID...");
 			}
 			
 			}
 		catch (IDInvalidException e) 
 			{
-				generateID();
+				System.out.println("Error"+ e );
+				int min = 1000;
+				int max = 10000;
+		          
+				Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
+				
+				ID = randomID.toString();
+				generatedID = ("IT"+ID);
 			}
 		
 		

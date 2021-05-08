@@ -26,7 +26,7 @@ public class Weekend extends Student{
 		
 			//declaring range for the ID number to be generated.
 			int min = 1000;
-			int max = 100000;
+			int max = 10000;
 	          
 			Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
 			
@@ -36,14 +36,23 @@ public class Weekend extends Student{
 			if(!generatedID.contains("IT") ||   4>ID.length()) 
 			{
 				
-				throw new IDInvalidException("as");
+				throw new IDInvalidException("Invalid ID.Regenerating ID...");
 			}
 			
 			}
 		catch (IDInvalidException e) 
 			{
 				//catching the custom exception here and calling the generateID function again.
-				generateID();
+			
+				System.out.println("Error"+ e );
+				System.out.println("Error"+ e );
+				int min = 1000;
+				int max = 10000;
+		          
+				Integer randomID = (int)Math.floor(Math.random()*(max-min+1)+min);		
+				
+				ID = randomID.toString();
+				generatedID = ("IT"+ID);
 			}
 		
 		

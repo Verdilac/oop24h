@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 public class Specialization {
 	
+	//declaring map which will later be assigned when the constructor is called.
 	protected Map<String,Double> degreeDetails;
 	
 	 Specialization() {
